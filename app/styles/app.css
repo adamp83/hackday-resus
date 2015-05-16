@@ -1,9 +1,9 @@
-/* compensate for height of top navbar */
 body {
-  padding-top: 50px;
+  padding-top: 50px; /* compensate for height of top navbar */
 }
 
-/* main column styles */
+
+/* main columns */
 .resus-main-columns .resus-col h4 {
 	text-align: center;
 	margin-bottom: 15px;
@@ -19,13 +19,10 @@ body {
 }
 
 
-
-
-
-
-
-
-
+/* event log */
+.resus-event-log {
+  background-color: #F8F8F8;
+}
 
 
 /* extra css for 5 equal-width columns in bootstrap */
