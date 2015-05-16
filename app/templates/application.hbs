@@ -22,18 +22,7 @@
 <div class="records">
 	<ul>
 		{{#each record in records}}
-			<li {{action "editUserText" record}}>
-				{{moment record.time}}: 
-				<span>{{record.text}}</span>
-				{{record.editingText}}
-				{{#if record.editingText}}
-					<div>{{input value=record.userText}}
-						<button {{action "finishedEditing" record}}>Save</button>
-					</div>
-				{{else}}
-					<span>{{record.userText}}></span>
-				{{/if}}
-			</li>
+			{{record-entry record=record}}
 		{{/each}}
 	</ul>
 </div>

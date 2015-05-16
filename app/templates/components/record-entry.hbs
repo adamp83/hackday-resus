@@ -1,0 +1,18 @@
+<li {{bind-attr class="record.userDeleted:deleted :record"}}>
+	<div class="pull-right">
+		<button {{action "deleteRecord"}}>x</button>
+	</div>
+	
+	<span {{action "editUserText"}}>
+	
+		{{moment record.time "HH:mm:ss"}}: 
+		<span>{{record.text}}</span>
+		{{#if editingText}}
+		<div>{{input value=record.userText}}
+			<button {{action "finishedEditing"}}>Save</button>
+		</div>
+		{{else}}
+		<div>{{record.userText}}</div>
+		{{/if}}
+	</span>
+</li>

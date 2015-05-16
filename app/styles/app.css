@@ -1,0 +1,6 @@
+.record{
+	clear:both;
+}
+.record.deleted{
+	text-decoration: line-through;
+}

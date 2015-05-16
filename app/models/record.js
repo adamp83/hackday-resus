@@ -6,10 +6,15 @@ var Record = DS.Model.extend({
 	userText: DS.attr('string'),
 	textSaved: DS.attr('boolean'),
 	editingText: DS.attr('boolean'),
+	userDeleted: DS.attr('boolean'),
+	
 	text: function(){
 		return this.get('button.title');
 	}.property('button')
 });
 
+Record.reopenClass({
+	FIXTURES: []
+});
 
 export default Record;
