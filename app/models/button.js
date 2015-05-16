@@ -2,7 +2,9 @@ import DS from 'ember-data';
 
 var Button = DS.Model.extend({
 	title: DS.attr('text'),
-	category: DS.belongsTo('category')
+	category: DS.belongsTo('category'),
+	statuses: DS.attr('array'),
+	status: DS.attr(),
 });
 
 Button.reopenClass({
@@ -18,9 +20,7 @@ Button.reopenClass({
 		{id: 8, title: "Bag-valve mask ventilation", category: 2},
 		{id: 9, title: "Ventilator", category: 2},
 		
-		{id: 10, title: "Rhythm: asystole", category: 3},
-		{id: 11, title: "Rhythm: VF", category: 3},
-		{id: 12, title: "Rhythm: PEA", category: 3},
+		{id: 10, title: "Rhythm", statuses: ['Asystole', 'PEA', 'VF', 'Spontaneous circulation'], status: undefined, category: 3},
 		{id: 14, title: "IV access", category: 3},
 		{id: 15, title: "DC Shock", category: 3},
 		{id: 16, title: "ROSC", category: 3},

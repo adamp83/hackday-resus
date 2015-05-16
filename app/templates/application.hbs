@@ -9,9 +9,7 @@
 	<ul>
 		{{#each button in category.buttons}}
 			<li>
-				<a {{action "addRecord" button}}>
-					{{button.title}}
-				</a>
+				{{render "button" button}}
 			</li>
 		{{/each}}
 	</ul>

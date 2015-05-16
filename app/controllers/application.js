@@ -6,15 +6,4 @@ export default Ember.Controller.extend({
 		return this.store.all('record');
 	}.property('record'),
 	
-	actions: {
-		addRecord: function(button){
-			this.store.createRecord('record', {
-				button: button,
-				time: Date.now()
-			})
-		}
-		
-		
-	}
-	
 });
