@@ -1,3 +1,39 @@
 <h2 id="title">Welcome to Ember.js</h2>
 
 {{outlet}}
+
+
+{{#each category in model}}
+<div>
+	{{category.title}}
+	<ul>
+		{{#each button in category.buttons}}
+			<li>
+				<a {{action "addRecord" button}}>
+					{{button.title}}
+				</a>
+			</li>
+		{{/each}}
+	</ul>
+</div>
+{{/each}}
+
+
+<div class="records">
+	<ul>
+		{{#each record in records}}
+			<li {{action "editUserText" record}}>
+				{{moment record.time}}: 
+				<span>{{record.text}}</span>
+				{{record.editingText}}
+				{{#if record.editingText}}
+					<div>{{input value=record.userText}}
+						<button {{action "finishedEditing" record}}>Save</button>
+					</div>
+				{{else}}
+					<span>{{record.userText}}></span>
+				{{/if}}
+			</li>
+		{{/each}}
+	</ul>
+</div>
