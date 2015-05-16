@@ -12,15 +12,8 @@ export default Ember.Controller.extend({
 				button: button,
 				time: Date.now()
 			})
-		},
-		finishedEditing: function(record){
-			record.set('editingText', false);
-			return false;
-		},
-		editUserText: function(record){
-			record.set('editingText', true);
-			return false;
 		}
+		
 		
 	}
 	
