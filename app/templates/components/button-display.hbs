@@ -1,0 +1,20 @@
+<a {{action "clickButton" button}} {{bind-attr class="awaitingStatus"}}>{{button.title}}
+{{#if button.status}}
+	<span class="buttonStatus">{{button.status}}</span>
+{{/if}}
+{{#if button.counted}}
+	<span class="buttonCount">{{button.count}}</span>
+{{/if}}
+{{#if button.hasTimer}}
+	{{#if button.countFrom}}
+		{{button.timer}}
+	{{/if}}
+{{/if}}
+</a>
+{{#if controller.displayStatuses}}
+	{{#each possibleStatus in button.statuses}}
+		<ul>
+			<a {{action "selectStatus" button possibleStatus}}>{{possibleStatus}}</a>
+		</ul>
+	{{/each}}
+{{/if}}

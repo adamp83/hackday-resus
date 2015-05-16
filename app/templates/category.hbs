@@ -1,0 +1,10 @@
+<div>
+	{{category.title}}
+	<ul>
+		{{#each button in controller.buttons}}
+			<li>
+				{{button-display button=button}}
+			</li>
+		{{/each}}
+	</ul>
+</div>

@@ -6,23 +6,14 @@
 	{{resusTimer}}
 </div>
 
-{{#if timerStarted}}
-	<button {{action "stopTimer"}}>Stop</button>
+{{#if arrestMode}}
+	<button {{action "endArrest"}}>ROSC</button>
 {{else}}
-	<button {{action "startTimer"}}>Start</button>
+	<button {{action "startArrest"}}>Cardiac Arrest</button>
 {{/if}}
 
 {{#each category in model}}
-<div>
-	{{category.title}}
-	<ul>
-		{{#each button in category.buttons}}
-			<li>
-				{{render "button" button}}
-			</li>
-		{{/each}}
-	</ul>
-</div>
+	{{render "category" category}}
 {{/each}}
 
 

@@ -5,6 +5,8 @@ export default Ember.Controller.extend({
 	resusTimer: 0.0,
 	timerStarted: false,
 	
+	arrestMode: false,
+	
 	records: function(){
 		return this.store.all('record');
 	}.property('record'),
@@ -28,21 +30,32 @@ export default Ember.Controller.extend({
 		
 		startTimer: function(){
 			this.set('timerStarted', true);
-			this.store.createRecord('record',{
-				time: Date.now(),
-				text: 'Arrest Started'
-			});
-			
 		},
 		
+		startArrest: function(){
+			this.set('arrestMode', true);
+			this.send('resetTimer');
+			this.send('startTimer');
+			this.store.createRecord('record',{
+				time: Date.now(),
+				text: 'Arrest declared'
+			});
+		},
+		endArrest: function(){
+			this.set('arrestMode', false);
+			this.send('resetTimer');
+			this.send('startTimer');
+			this.store.createRecord('record',{
+				time: Date.now(),
+				text: 'ROSC declared'
+			});
+		},
 		stopTimer: function(){
 			this.set('timerStarted', false);
-			this.store.createRecord('record',{
-				time: Date.now(),
-				text: 'Timer stopped'
-			});
 		},
-		
+		resetTimer: function(){
+			this.set('resusTimer', 0);
+		},
 		saveCustomRecord: function(){
 			if(this.get('newCustomRecordText')){
 				this.store.createRecord('record',{
