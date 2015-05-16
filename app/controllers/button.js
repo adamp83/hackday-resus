@@ -5,9 +5,18 @@ export default Ember.Controller.extend({
 	
 	actions: {
 		clickButton: function(button){
+			var userText = undefined;
 			if(!button.get('statuses')){
+				if(button.get('counted')){
+					if(!button.get('count'))
+						button.set('count', 1);
+					else
+						button.set('count', button.get('count') + 1);
+					userText = button.get('count');
+				};
 				this.store.createRecord('record', {
 					button: button,
+					userText: userText,
 					time: Date.now()
 				});
 			}

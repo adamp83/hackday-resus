@@ -4,6 +4,8 @@ var Button = DS.Model.extend({
 	title: DS.attr('text'),
 	category: DS.belongsTo('category'),
 	statuses: DS.attr('array'),
+	count: DS.attr('integer'),
+	counted: DS.attr('boolean'),
 	status: DS.attr(),
 });
 
@@ -22,7 +24,7 @@ Button.reopenClass({
 		
 		{id: 10, title: "Rhythm", statuses: ['Asystole', 'PEA', 'VF', 'Spontaneous circulation'], status: undefined, category: 3},
 		{id: 14, title: "IV access", category: 3},
-		{id: 15, title: "DC Shock", category: 3},
+		{id: 15, title: "DC Shock", counted: true, category: 3},
 		{id: 16, title: "ROSC", category: 3},
 		{id: 17, title: "Adrenaline", category: 3},
 		{id: 18, title: "Amiodarone", category: 3},

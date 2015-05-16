@@ -2,6 +2,9 @@
 {{#if button.status}}
 	<span class="buttonStatus">{{button.status}}</span>
 {{/if}}
+{{#if button.counted}}
+	<span class="buttonCount">{{button.count}}</span>
+{{/if}}
 </a>
 {{#if controller.displayStatuses}}
 	{{#each possibleStatus in button.statuses}}
