@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
 			var userText = undefined;
 			var text = button.get('title');
 			
-			if(button.isToggleable){
+			if(button.get('isToggleable')){
 				if(button.get('isActive')){
 					button.set('isActive', false);
 					var duration = moment.duration(Date.now() - button.get('countFrom'));
