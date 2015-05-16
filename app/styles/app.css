@@ -3,15 +3,32 @@ body {
   padding-top: 50px;
 }
 
-/* column styles */
-.odd-col {
-	background-color: #C1EAFF;
+/* main column styles */
+.resus-main-columns .resus-col h4 {
+	text-align: center;
+	margin-bottom: 15px;
+}	
+.resus-odd-col {
+	background-color: #E5F6FF;
 }
-.even-col {
-	background-color: #77D1FF;
+.resus-even-col {
+	background-color: #CCEEFF;
+}
+.resus-main-columns .resus-col .btn {
+	margin: 5px 0;
 }
 
-/* extra css for 5 equal-width columns */
+
+
+
+
+
+
+
+
+
+
+/* extra css for 5 equal-width columns in bootstrap */
 .col-xs-5ths,
 .col-sm-5ths,
 .col-md-5ths,
