@@ -41,6 +41,16 @@ export default Ember.Controller.extend({
 				time: Date.now(),
 				text: 'Timer stopped'
 			});
+		},
+		
+		saveCustomRecord: function(){
+			if(this.get('newCustomRecordText')){
+				this.store.createRecord('record',{
+					time: Date.now(),
+					text: this.get('newCustomRecordText')
+				});
+			}
+			this.set('newCustomRecordText', null);
 		}
 
 	}

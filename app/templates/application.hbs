@@ -33,5 +33,12 @@
 		{{#each record in records}}
 			{{record-entry record=record}}
 		{{/each}}
+		
+		<li>
+			{{input value=newCustomRecordText placeholder="Add new event"}}
+			<button {{action 'saveCustomRecord'}}>
+				Save
+			</button>
+		</li>
 	</ul>
 </div>
