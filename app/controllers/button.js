@@ -28,6 +28,9 @@ export default Ember.Controller.extend({
 				//Does have statuses: display to user!
 				this.toggleProperty('displayStatuses');
 			}
+			if(button.get('hasTimer')){
+				button.set('countFrom', Date.now());
+			}
 		},
 		
 		selectStatus: function(button, status){
@@ -39,5 +42,19 @@ export default Ember.Controller.extend({
 			});
 			this.set('displayStatuses', false);
 		}
-	}
+	},
+	
+	updateTimer: function(){
+		var button = this.get('model');
+		if(button.get('hasTimer')){
+			setInterval(function(){
+				if(button.get('countFrom')){
+					var duration = moment.duration(Date.now() - button.get('countFrom'), 'milliseconds');
+					var str = Math.floor(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
+					
+					button.set('timer', str);
+				}
+			}, 100);
+		}
+	}.on('init')
 });
