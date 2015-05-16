@@ -2,6 +2,15 @@
 
 {{outlet}}
 
+<div class="timer">
+	{{resusTimer}}
+</div>
+
+{{#if timerStarted}}
+	<button {{action "stopTimer"}}>Stop</button>
+{{else}}
+	<button {{action "startTimer"}}>Start</button>
+{{/if}}
 
 {{#each category in model}}
 <div>
@@ -22,5 +31,12 @@
 		{{#each record in records}}
 			{{record-entry record=record}}
 		{{/each}}
+		
+		<li>
+			{{input value=newCustomRecordText placeholder="Add new event"}}
+			<button {{action 'saveCustomRecord'}}>
+				Save
+			</button>
+		</li>
 	</ul>
 </div>
