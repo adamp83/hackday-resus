@@ -1,0 +1,49 @@
+/* compensate for height of top navbar */
+body {
+  padding-top: 50px;
+}
+
+/* column styles */
+.odd-col {
+	background-color: #C1EAFF;
+}
+.even-col {
+	background-color: #77D1FF;
+}
+
+/* extra css for 5 equal-width columns */
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
