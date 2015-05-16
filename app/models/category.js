@@ -9,7 +9,9 @@ Category.reopenClass({
 	FIXTURES: [
 		{id: 1, title: "Airway"},
 		{id: 2, title: "Breathing"},
-		{id: 3, title: "Circulation"}
+		{id: 3, title: "Circulation"},
+		{id: 4, title: "Disability/Exposure"},
+		{id: 5, title: "Team"},
 	]
 });
 
