@@ -11,7 +11,8 @@ Category.reopenClass({
 		{id: 2, title: "Breathing"},
 		{id: 3, title: "Circulation"},
 		{id: 4, title: "Disability/Exposure"},
-		{id: 5, title: "Team"},
+		{id: 5, title: "Reversible Causes"},
+		{id: 6, title: "Team"},
 	]
 });
 

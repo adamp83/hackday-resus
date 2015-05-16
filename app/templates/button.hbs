@@ -1,4 +1,4 @@
-<a {{action "clickButton" button}}>{{button.title}}
+<a {{action "clickButton" button}} {{bind-attr class="awaitingStatus"}}>{{button.title}}
 {{#if button.status}}
 	<span class="buttonStatus">{{button.status}}</span>
 {{/if}}

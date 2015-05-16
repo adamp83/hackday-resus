@@ -4,3 +4,6 @@
 .record.deleted{
 	text-decoration: line-through;
 }
+.awaiting-status{
+	background-color: #fcc;
+}

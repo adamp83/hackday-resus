@@ -3,6 +3,10 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	displayStatuses: false,
 	
+	awaitingStatus: function(){
+		return (this.get('model.statuses') != undefined) && (this.get('model.status') == undefined);
+	}.property('model.status', 'model.statuses'),
+	
 	actions: {
 		clickButton: function(button){
 			var userText = undefined;

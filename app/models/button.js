@@ -35,9 +35,18 @@ Button.reopenClass({
 		{id: 22, title: "Pupils", category: 4},
 		{id: 23, title: "Temperature", category: 4},
 		
-		{id: 24, title: "Member arrives", category: 5},
-		{id: 25, title: "Member leaves", category: 5},
-		{id: 26, title: "Delegate task", category: 5},
+		{id: 24, title: "Hypoxia", statuses: ['Considered causal', 'Not considered causal'], category: 5},
+		{id: 25, title: "Hypovolaemia", statuses: ['Not suspected', 'Presumed', 'Suspected', 'Confirmed'], category: 5},
+		{id: 26, title: "Electrolyte abnormalities", statuses: ['Awaited', 'Checked - no issues', 'Problems'], category: 5},
+		{id: 27, title: "Hypothermia", statuses: ['None', 'Present'], category: 5},
+		{id: 28, title: "Tension pneumothorax", statuses: ['Not suspected', 'Suspected', 'Confirmed', 'Treated'], category: 5},
+		{id: 29, title: "Tamponade", statuses: ['Not suspected', 'Suspected', 'Confirmed', 'Treated'], category: 5},
+		{id: 30, title: "Thrombosis", statuses: ['Not suspected', 'Suspected', 'Confirmed', 'Treated'], category: 5},
+		{id: 31, title: "Toxins", statuses: ['Not suspected', 'Suspected', 'Confirmed', 'Treated'], category: 5},
+		
+		{id: 32, title: "Member arrives", category: 6},
+		{id: 33, title: "Member leaves", category: 6},
+		{id: 34, title: "Delegate task", category: 6},
 		
 		
 	]
