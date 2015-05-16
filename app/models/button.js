@@ -11,13 +11,13 @@ var Button = DS.Model.extend({
 
 Button.reopenClass({
 	FIXTURES: [
-		{id: 1, title: "Airway assessment", category: 1},
-		{id: 2, title: "Airway manoeuvre", category: 1},
-		{id: 3, title: "Guedel airway", category: 1},
-		{id: 4, title: "Nasopharyngeal airway", category: 1},
+		{id: 1, title: "Airway status", statuses: ['Patent', 'Non-patent'], , category: 1},
+		{id: 2, title: "Airway support", statuses: ['Manouevres', 'Guedel', 'Nasopharyngeal', 'Laryngeal mask-airway', 'Endotracheal tube', 'Trachoetomy', 'Tracheostomy'], category: 1},
 		{id: 5, title: "Intubation attempt started", category: 1},
 		{id: 6, title: "Intubation attempt ended", category: 1},
 		
+		{id: 35, title: "Breathing", statuses: ['Sufficient self-ventilation', 'Insufficient self-ventilation', 'Bag-valve mask ventilation', 'Manual ventilation through ', 'Mechanically ventilated'], category: 2},
+		{id: 36, title: "Administer O2", category: 2},
 		{id: 7, title: "Administer O2", category: 2},
 		{id: 8, title: "Bag-valve mask ventilation", category: 2},
 		{id: 9, title: "Ventilator", category: 2},
