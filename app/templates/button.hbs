@@ -5,6 +5,11 @@
 {{#if button.counted}}
 	<span class="buttonCount">{{button.count}}</span>
 {{/if}}
+{{#if button.hasTimer}}
+	{{#if button.countFrom}}
+		{{button.timer}}
+	{{/if}}
+{{/if}}
 </a>
 {{#if controller.displayStatuses}}
 	{{#each possibleStatus in button.statuses}}
