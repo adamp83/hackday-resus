@@ -1,24 +1,43 @@
-<a {{action "clickButton" button}} {{bind-attr class=":actionButton awaitingStatus button.isActive:active"}}>{{button.title}}
-{{#if button.status}}
-	<span class="buttonStatus">{{button.status}}</span>
-{{/if}}
-{{#if button.counted}}
-	<span class="buttonCount">{{button.count}}</span>
-{{/if}}
-{{#if button.hasTimer}}
-	{{#if button.countFrom}}
-		{{#if button.activeDuration}}
-
-		{{else}}
-			{{button.timer}}
+<div {{bind-attr class="controller.displayStatuses:dropdown"}}>
+	
+	<button {{action "clickButton" button}} {{bind-attr class=":actionButton awaitingStatus button.isActive:active :btn :btn-default :btn-block controller.displayStatuses:dropdown-toggle"}} data-toggle="dropdown" aria-expanded="true">
+		{{button.title}}
+		{{#if controller.displayStatuses}}
+			<span class="caret"></span>
 		{{/if}}
-	{{/if}}
-{{/if}}
-</a>
-{{#if controller.displayStatuses}}
-	{{#each possibleStatus in button.statuses}}
-		<ul>
-			<a {{action "selectStatus" button possibleStatus}}>{{possibleStatus}}</a>
+		
+		{{#if button.status}}
+			<span class="buttonStatus">{{button.status}}</span>
+		{{/if}}
+		{{#if button.counted}}
+			<span class="buttonCount">{{button.count}}</span>
+		{{/if}}
+		{{#if button.hasTimer}}
+			{{#if button.countFrom}}
+				{{#if button.activeDuration}}
+
+				{{else}}
+					{{button.timer}}
+				{{/if}}
+			{{/if}}
+		{{/if}}
+		
+	</button>
+	
+	
+	{{#if controller.displayStatuses}}
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			{{#each possibleStatus in button.statuses}}
+				<li role="presentation">
+					<a role="menuitem" tabindex="-1" href="#" {{action "selectStatus" button possibleStatus}}>
+						{{possibleStatus}}
+					</a>
+				</li>
+			
+			{{/each}}
 		</ul>
-	{{/each}}
-{{/if}}
+	{{/if}}
+	
+
+	
+</div>

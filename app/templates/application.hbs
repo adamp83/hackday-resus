@@ -1,37 +1,61 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<!-- google fonts -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
 
-{{outlet}}
 
-<div class="timer">
-	{{resusTimerStr}}
-</div>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Resus Record</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <p class="navbar-text timer">{{resusTimerStr}}</p>
+	  {{#if timerStarted}}
+	  	<button type="button" class="btn btn-default navbar-btn" {{action "stopTimer"}}>Stop</button>
+	  {{else}}
+	  	<button type="button" class="btn btn-default navbar-btn" {{action "startTimer"}}>Start</button>
+	  {{/if}}
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">Sick Mode</a></li>
+        <li><a href="#">Resus Mode</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
 
-{{#if timerStarted}}
-	<button {{action "stopTimer"}}>Stop</button>
-{{else}}
-	<button {{action "startTimer"}}>Start</button>
-{{/if}}
 
-{{#each category in model}}
-<div>
-	{{category.title}}
-	<ul>
-		{{#each button in category.buttons}}
-			<li>
+
+<!-- Columns for ABCDE... -->
+<div class="container-fluid resus-main-columns">
+	<div class="row">
+		
+		
+		{{#each category in model}}
+		<div class="col-xs-5ths resus-col resus-even-col">
+			<h4>{{category.title}}</h4>
+			{{#each button in category.buttons}}
 				{{render "button" button}}
-			</li>
+			{{/each}}
+		</div>
 		{{/each}}
-	</ul>
+		
+
+	</div>
 </div>
-{{/each}}
 
 
-<div class="records">
+<!-- event log -->
+<div class="container-fluid resus-event-log">
 	<ul>
 		{{#each record in records}}
 			{{record-entry record=record}}
 		{{/each}}
-		
 		<li>
 			{{input value=newCustomRecordText placeholder="Add new event"}}
 			<button {{action 'saveCustomRecord'}}>
