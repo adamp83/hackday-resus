@@ -1,4 +1,4 @@
-<a {{action "clickButton" button}} {{bind-attr class="awaitingStatus"}}>{{button.title}}
+<a {{action "clickButton" button}} {{bind-attr class=":actionButton awaitingStatus button.isActive:active"}}>{{button.title}}
 {{#if button.status}}
 	<span class="buttonStatus">{{button.status}}</span>
 {{/if}}
@@ -7,7 +7,11 @@
 {{/if}}
 {{#if button.hasTimer}}
 	{{#if button.countFrom}}
-		{{button.timer}}
+		{{#if button.activeDuration}}
+
+		{{else}}
+			{{button.timer}}
+		{{/if}}
 	{{/if}}
 {{/if}}
 </a>

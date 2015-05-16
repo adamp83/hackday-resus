@@ -7,3 +7,7 @@
 .awaiting-status{
 	background-color: #fcc;
 }
+
+.actionButton.active{
+	background-color: #ccf;
+}
