@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 	
 	resusTimer: 0.0,
+	resusTimerStr: "",
 	timerStarted: false,
 	
 	arrestMode: false,
@@ -15,7 +16,10 @@ export default Ember.Controller.extend({
 		var _this = this;
 		setInterval(function(){
 			if(_this.get('timerStarted')){
+				var duration = moment.duration(_this.get('resusTimer'), 's');
+				var durationStr = Math.floor(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
 				_this.set('resusTimer', Number((_this.get('resusTimer') + 0.1).toFixed(2)));
+				_this.set('resusTimerStr', durationStr);
 			}
 		}, 100);
 	}.on('init'),

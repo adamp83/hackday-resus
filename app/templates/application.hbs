@@ -1,28 +1,55 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<!-- google fonts -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600' rel='stylesheet' type='text/css'>
 
-{{outlet}}
 
-<div class="timer">
-	{{resusTimer}}
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Resus Record</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <p class="navbar-text timer">{{resusTimerStr}}</p>
+	  {{#if arrestMode}}
+			<button {{action "endArrest"}}>ROSC</button>
+		{{else}}
+			<button {{action "startArrest"}}>Cardiac Arrest</button>
+		{{/if}}
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">Sick Mode</a></li>
+        <li><a href="#">Resus Mode</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+
+<!-- Columns for ABCDE... -->
+<div class="container-fluid resus-main-columns">
+	<div class="row">
+		
+		
+		{{#each category in model}}
+			{{render "category" category}}
+		{{/each}}
+		
+
+	</div>
 </div>
 
-{{#if arrestMode}}
-	<button {{action "endArrest"}}>ROSC</button>
-{{else}}
-	<button {{action "startArrest"}}>Cardiac Arrest</button>
-{{/if}}
 
-{{#each category in model}}
-	{{render "category" category}}
-{{/each}}
-
-
-<div class="records">
+<!-- event log -->
+<div class="container-fluid resus-event-log">
 	<ul>
 		{{#each record in records}}
 			{{record-entry record=record}}
 		{{/each}}
-		
 		<li>
 			{{input value=newCustomRecordText placeholder="Add new event"}}
 			<button {{action 'saveCustomRecord'}}>

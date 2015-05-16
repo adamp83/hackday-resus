@@ -10,6 +10,29 @@ export default Ember.Component.extend({
 	actions: {
 		clickButton: function(button){
 			var userText = undefined;
+			var text = button.get('title');
+			
+			if(button.get('isToggleable')){
+				if(button.get('isActive')){
+					button.set('isActive', false);
+					var duration = moment.duration(Date.now() - button.get('countFrom'));
+					var durationStr = Math.floor(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
+					button.set('activeDuration', durationStr);
+					text = text + " stopped (" + durationStr +")";
+				}else{
+					button.set('isActive', true);
+					if(button.get('hasTimer')){
+						button.set('countFrom', Date.now());
+						button.set('activeDuration', null);
+					}
+					text = text + " started";
+				}
+			}else{
+				if(button.get('hasTimer')){
+					button.set('countFrom', Date.now());
+				}
+			}
+			
 			if(!button.get('statuses')){
 				if(button.get('counted')){
 					if(!button.get('count'))
@@ -21,6 +44,7 @@ export default Ember.Component.extend({
 				button.store.createRecord('record', {
 					button: button,
 					userText: userText,
+					text: text,
 					time: Date.now()
 				});
 			}
@@ -28,9 +52,9 @@ export default Ember.Component.extend({
 				//Does have statuses: display to user!
 				this.toggleProperty('displayStatuses');
 			}
-			if(button.get('hasTimer')){
-				button.set('countFrom', Date.now());
-			}
+			
+			
+			
 		},
 		
 		selectStatus: function(button, status){

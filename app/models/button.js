@@ -9,6 +9,9 @@ var Button = DS.Model.extend({
 	countFrom: DS.attr('date'),
 	hasTimer: DS.attr('boolean'),
 	timer: DS.attr('number'),
+	isToggleable: DS.attr('boolean'),
+	isActive: DS.attr('boolean'),
+	activeDuration: DS.attr('number'),
 	status: DS.attr(),
 	arrestMode: DS.attr('boolean', {defaultValue: true}),
 	sickMode: DS.attr('boolean', {defaultValue: true}),
@@ -16,9 +19,10 @@ var Button = DS.Model.extend({
 
 Button.reopenClass({
 	FIXTURES: [
+
 		{id: 1, title: "Airway status", statuses: ['Patent', 'Non-patent'] , category: 1},
 		{id: 2, title: "Airway support", statuses: ['None required', 'Manouevres', 'Guedel', 'Nasopharyngeal', 'Laryngeal mask-airway', 'Endotracheal tube', 'Trachoetomy', 'Tracheostomy'], category: 1},
-		{id: 3, title: "Intubation", hasTimer: true, category: 1},
+		{id: 3, title: "Intubation", hasTimer: true, category: 1, isToggleable: true, hasTimer: true},
 		
 		{id: 4, title: "Breathing", statuses: ['Sufficient self-ventilation', 'Insufficient self-ventilation', 'CPAP', 'Bilevel non-invasive pressure support', 'Bag-valve mask ventilation', 'Manual ventilation', 'Mechanically ventilated'], category: 2},
 		{id: 5, title: "Oxygen delivery", statuses: ['High flow O2', 'Venturi device', 'Nasal cannulae', 'Face-mask', 'Room air'], category: 2},

@@ -1,10 +1,6 @@
-<div>
-	{{category.title}}
-	<ul>
-		{{#each button in controller.buttons}}
-			<li>
+<!--<div class="col-xs-5ths resus-col resus-even-col">-->
+			<h4>{{category.title}}</h4>
+			{{#each button in controller.buttons}}
 				{{button-display button=button}}
-			</li>
-		{{/each}}
-	</ul>
-</div>
+			{{/each}}
+		<!--</div>-->

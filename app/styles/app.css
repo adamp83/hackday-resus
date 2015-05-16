@@ -1,3 +1,95 @@
+/* top nav */
+body {
+  padding-top: 50px; /* compensate for height of top navbar */
+  font-family: 'Open Sans', sans-serif;
+}
+.timer,
+.navbar-brand {
+	font-weight: 600;
+}
+
+/* main columns */
+.resus-main-columns {
+	border-bottom: 1px solid #e7e7e7;
+}
+.resus-main-columns .resus-col h4 {
+	text-align: center;
+	margin-bottom: 15px;
+}
+.resus-col {
+	padding: 5px 0 15px 0;
+}
+.resus-col:nth-child(even){
+	background-color: #F5FCFF;
+}
+.resus-col:nth-child(odd){
+	background-color: #EDF9FF;
+}
+.resus-odd-col {
+	background-color: #EDF9FF;
+}
+.resus-even-col {
+	background-color: #F5FCFF;
+}
+.resus-main-columns .resus-col .btn {
+	margin: 7px 0;
+}
+/* force equal column height */
+.resus-main-columns .row {
+    display: table;
+}
+.resus-main-columns .row [class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
+
+/* event log */
+.resus-event-log {
+	padding-top: 30px;
+	padding-bottom: 20px;
+  background-color: #F8F8F8;
+}
+
+
+/* extra css for 5 equal-width columns in bootstrap */
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+
 .record{
 	clear:both;
 }
@@ -6,4 +98,8 @@
 }
 .awaiting-status{
 	background-color: #fcc;
+}
+
+.actionButton.active{
+	background-color: #ccf;
 }

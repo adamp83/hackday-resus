@@ -7,10 +7,11 @@ var Record = DS.Model.extend({
 	textSaved: DS.attr('boolean'),
 	editingText: DS.attr('boolean'),
 	userDeleted: DS.attr('boolean'),
+	text: DS.attr('string')
 	
-	text: function(){
-		return this.get('button.title');
-	}.property('button')
+	// text: function(){
+	// 	return this.get('button.title');
+	// }.property('button')
 });
 
 Record.reopenClass({
