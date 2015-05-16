@@ -2,6 +2,15 @@
 
 {{outlet}}
 
+<div class="timer">
+	{{resusTimer}}
+</div>
+
+{{#if timerStarted}}
+	<button {{action "stopTimer"}}>Stop</button>
+{{else}}
+	<button {{action "startTimer"}}>Start</button>
+{{/if}}
 
 {{#each category in model}}
 <div>
