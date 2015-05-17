@@ -117,18 +117,9 @@ export default Ember.Component.extend({
 	actions: {
 		clickButton: function(){
 			this.doButtonAction();
-		},
-		
-		selectStatus: function(button, status){
-			button.set('status', status);
-			button.store.createRecord('record', {
-				button: button,
-				userText: status,
-				time: Date.now(),
-				text: button.get('title')
-			});
-			this.set('displayStatuses', false);
 		}
+		
+		
 	},
 	
 	updateTimer: function(){

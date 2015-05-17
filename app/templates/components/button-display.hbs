@@ -3,6 +3,10 @@
 	
 	<button {{action "clickButton"}} {{bind-attr class=":actionButton awaitingStatus button.isActive:active :btn :btn-default :btn-block"}}>
 		{{button.title}}
+		{{#if button.hasStatuses}}
+			<span class="caret"></span>
+		{{/if}}
+		
 		{{#if button.status}}
 			<div class="buttonStatus">
 				<small>{{button.status}}</small>
@@ -28,9 +32,7 @@
 				{{/if}}
 			{{/if}}
 		{{/if}}
-		{{#if button.hasStatuses}}
-			<span class="caret"></span>
-		{{/if}}
+		
 	</button>
 	
 	

@@ -25,5 +25,22 @@ export default Ember.Component.extend({
 			}
 		});
 		
+	},
+	
+	actions: {
+		
+		selectStatus: function(){
+			var button = this.button;
+			var status = this.possibleStatus;
+			button.set('status', status);
+			button.store.createRecord('record', {
+				button: button,
+				userText: status,
+				time: Date.now(),
+				text: button.get('title')
+			});
+			console.log(this)
+			this.set('displayStatuses', false);
+		}
 	}
 });
