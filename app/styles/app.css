@@ -3,9 +3,10 @@ body {
   padding-top: 50px; /* compensate for height of top navbar */
   font-family: 'Open Sans', sans-serif;
 }
-.timer,
-.navbar-brand {
+.timer {
 	font-weight: 600;
+	font-size: 24px;
+  margin: 8px 15px;
 }
 
 /* main columns */
