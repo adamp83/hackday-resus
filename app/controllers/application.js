@@ -3,6 +3,7 @@ import moment from 'moment';
 
 export default Ember.Controller.extend({
 	
+	appStartTime: undefined,
 	resusTimer: 0.0,
 	resusTimerStr: "0:00:00",
 	timerStarted: false,
@@ -33,6 +34,11 @@ export default Ember.Controller.extend({
 			}
 		}, 100);
 		this.set('timerStarted', true);
+		this.set('appStartTime', Date.now());
+		this.store.createRecord('record', {
+				text: 'Opened app. Resus presumed.',
+				time: Date.now()
+			});
 	}.on('init'),
 	
 	actions: {
@@ -121,21 +127,29 @@ export default Ember.Controller.extend({
 		makePDF: function(){
 			var doc = new jsPDF();
 
+			this.set('pdfMode', true);
 			// We'll make our own renderer to skip this editor
 			var specialElementHandlers = {
-				'#editor': function(element, renderer){
+				'.no-print': function(element, renderer){
+					console.log('no print');
 					return true;
-				}
+				},
 			};
-
-			// All units are in the set measurement for the document
-			// This can be changed to "pt" (points), "mm" (Default), "cm", "in"
-			doc.fromHTML($('#resus-log').get(0), 15, 15, {
-				'width': 170, 
-				'elementHandlers': specialElementHandlers
+			var _this = this;
+			var elm = $('#resus-log').get(0);
+			Ember.run.scheduleOnce('afterRender', function(){
+				// All units are in the set measurement for the document
+				// This can be changed to "pt" (points), "mm" (Default), "cm", "in"
+				doc.fromHTML(elm, 15, 15, {
+					'width': 170, 
+					'elementHandlers': specialElementHandlers
+				});
+				
+				_this.set('pdfMode', false);
+				
+				doc.save('Resus log ' + moment(_this.get('appStartTime')).format('YYYY-MM-DD hh:mm') + '.pdf');	
 			});
-			
-			doc.save('Resus log.pdf');	
+				
 		}
 	}
 
