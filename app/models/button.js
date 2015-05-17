@@ -27,6 +27,7 @@ Button.reopenClass({
 		{id: 4, title: "Breathing", statuses: ['Sufficient self-ventilation', 'Insufficient self-ventilation', 'CPAP', 'Bilevel non-invasive pressure support', 'Bag-valve mask ventilation', 'Manual ventilation', 'Mechanically ventilated'], category: 2},
 		{id: 5, title: "Oxygen delivery", statuses: ['High flow O2', 'Venturi device', 'Nasal cannulae', 'Face-mask', 'Room air'], category: 2},
 		
+		{id: 50, title: "CPR", isToggleable: true, hasTimer: true, category: 3, sickMode: false},
 		{id: 6, title: "Rhythm", statuses: ['Asystole', 'PEA', 'VF', 'Sinus rhythm', 'Arrhythmia'], status: undefined, category: 3},
 		{id: 7, title: "IV access", category: 3},
 		{id: 8, title: "DC Shock", counted: true, category: 3, hasTimer: true, sickMode: false},
@@ -34,7 +35,7 @@ Button.reopenClass({
 		{id: 9, title: "Adrenaline bolus", counted: true, category: 3, hasTimer: true, sickMode: false},
 		{id: 10, title: "Amiodarone bolus", counted: true, category: 3},
 		{id: 11, title: "Fluid bolus", counted: true, category: 3},
-		{id: 50, title: "CPR", isToggleable: true, hasTimer: true, category: 3, sickMode: false},
+		
 		
 		{id: 12, title: "Glucose", statuses: ['Low', 'Acceptable', 'High'], category: 4},
 		{id: 13, title: "Responsiveness", statuses: ['Alert', 'Verbal', 'Pain', 'Unresponsive'], arrestMode: false, category: 4},
