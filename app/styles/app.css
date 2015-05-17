@@ -1,6 +1,5 @@
 /* top nav */
 body {
-  padding-top: 50px; /* compensate for height of top navbar */
   font-family: 'Open Sans', sans-serif;
 }
 .timer {
@@ -11,14 +10,21 @@ body {
 
 /* main columns */
 .resus-main-columns {
+	background-color: #F5FCFF;
 	border-bottom: 1px solid #e7e7e7;
+	overflow-y: scroll;
+	position: absolute;
+	top: 50px;
+	bottom: 200px;
+	left: 0;
+	right: 0;
 }
 .resus-main-columns .resus-col h4 {
 	text-align: center;
 	margin-bottom: 15px;
 }
 .resus-col {
-	padding: 5px 0 15px 0;
+	padding: 5px 5px 15px;
 }
 .resus-col:nth-child(even){
 	background-color: #F5FCFF;
@@ -32,6 +38,7 @@ body {
 /* force equal column height */
 .resus-main-columns .row {
     display: table;
+    height: 100%;
 }
 .resus-main-columns .row [class*="col-"] {
     float: none;
@@ -45,10 +52,15 @@ body {
 	padding-top: 30px;
 	padding-bottom: 20px;
   background-color: #F8F8F8;
-  
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   height:200px;
   overflow-x:hidden;
   overflow-y:scroll;
+}
+.resus-event-log .record .pull-right .button {
+	border: none;
 }
 
 
@@ -59,7 +71,7 @@ body {
 	text-decoration: line-through;
 }
 .awaiting-status{
-	background-color: #fcc;
+	background-color: #FFE7E7;
 }
 
 .actionButton.active{

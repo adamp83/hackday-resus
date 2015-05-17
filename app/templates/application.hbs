@@ -41,16 +41,18 @@
 
 
 <!-- event log -->
-<div class="container-fluid resus-event-log">
-	<ul>
-		{{#each record in records}}
-			{{record-entry record=record}}
-		{{/each}}
-		<li>
-			{{input value=newCustomRecordText placeholder="Add new event"}}
-			<button {{action 'saveCustomRecord'}}>
-				Save
-			</button>
-		</li>
-	</ul>
-</div>
+<footer class="resus-event-log">
+	<div class="container-fluid">
+		<ul>
+			{{#each record in records}}
+				{{record-entry record=record}}
+			{{/each}}
+			<li>
+				{{input value=newCustomRecordText placeholder="Add new event"}}
+				<button {{action 'saveCustomRecord'}}>
+					Save
+				</button>
+			</li>
+		</ul>
+	</div>
+</footer>
