@@ -1,3 +1,12 @@
 <div class="dragMember">
-	<button class="actionButton btn btn-default btn-block">{{member.name}}</button>
+	<button class="actionButton btn btn-default btn-block">
+		{{#if editName}}
+			{{input value=member.name}}
+			<button {{action "saveEditName"}}>save</button>
+		{{else}}
+			<a  {{action "doEditName"}}>
+				{{member.name}}
+			</a>
+		{{/if}}
+	</button>
 </div>
