@@ -30,6 +30,8 @@
 		{{/if}}
       
 		<span class="dropdown pull-right">
+			
+			
 			<button {{action "toggleResusStatuses"}} {{bind-attr class="hasResusStatus::awaiting-status :actionButton button.isActive:active :btn :btn-default :navbar-btn controller.displayResusStatuses:dropdown-toggle"}} data-toggle="dropdown" aria-expanded="true">
 				{{#if controller.hasResusStatus}}
 					{{controller.resusStatus}}
@@ -51,6 +53,8 @@
 					{{/each}}
 				</ul>
 			{{/if}}
+			
+			<button {{action "makePDF"}} class="btn btn-default navbar-btn">Save Record</button>
 		</span>
     </div><!--/.nav-collapse -->
   </div>
@@ -99,5 +103,5 @@
 			</li>
 		</ul>
 	</div>
-	<button {{action "makePDF"}}>PDF</button>
+	
 </footer>
