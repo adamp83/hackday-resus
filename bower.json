@@ -17,6 +17,7 @@
     "ember-cli-moment-shim": "~0.1.0"
   },
   "devDependencies": {
-    "bootstrap": "~3.3.4"
+    "bootstrap": "~3.3.4",
+    "jspdf": "~1.0.272"
   }
 }
