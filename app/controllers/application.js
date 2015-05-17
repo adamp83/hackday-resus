@@ -9,6 +9,14 @@ export default Ember.Controller.extend({
 	
 	arrestMode: false,
 	
+	resusStatuses: ['For full resuscitation', 'For limited resuscitation', 'Not for resuscitation'],
+	resusStatus: undefined,
+	displayResusStatuses: false,
+	
+	hasResusStatus: function(){
+		return (this.get('resusStatus') != undefined);
+	}.property('resusStatus'),
+	
 	records: function(){
 		return this.store.all('record');
 	}.property('record'),
@@ -78,6 +86,19 @@ export default Ember.Controller.extend({
 				});
 			}
 			this.set('newCustomRecordText', null);
+		},
+		
+		toggleResusStatuses: function(){
+			this.toggleProperty('displayResusStatuses');
+		},
+		
+		selectResusStatus: function(status){
+			this.set('resusStatus', status);
+			this.set('displayResusStatuses', false);
+			this.store.createRecord('record',{
+				time: Date.now(),
+				text: 'Resus status selected: ' + status
+			});
 		}
 
 	}

@@ -19,6 +19,29 @@
 			<button {{action "startArrest"}} class="btn btn-default navbar-btn">Cardiac Arrest</button>
 		{{/if}}
       
+		<span class="dropdown pull-right">
+			<button {{action "toggleResusStatuses"}} {{bind-attr class="hasResusStatus::awaiting-status :actionButton button.isActive:active :btn :btn-default :navbar-btn controller.displayResusStatuses:dropdown-toggle"}} data-toggle="dropdown" aria-expanded="true">
+				{{#if controller.hasResusStatus}}
+					{{controller.resusStatus}}
+				{{else}}
+					Enter resus status
+				{{/if}}
+				{{#if controller.displayResusStatuses}}
+					<span class="caret"></span>
+				{{/if}}
+			</button>
+			{{#if controller.displayResusStatuses}}
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+					{{#each possibleStatus in controller.resusStatuses}}
+						<li role="presentation">
+							<a role="menuitem" tabindex="-1" href="#" {{action "selectResusStatus" possibleStatus}}>
+								{{possibleStatus}}
+							</a>
+						</li>
+					{{/each}}
+				</ul>
+			{{/if}}
+		</span>
     </div><!--/.nav-collapse -->
   </div>
 </nav>
