@@ -62,7 +62,7 @@ export default Ember.Component.extend({
 					else{
 						button.set('count', button.get('count') + 1);
 					}
-					userText = button.get('count');
+					userText = "Count: " + button.get('count').toString();
 				}
 				button.store.createRecord('record', {
 					button: button,

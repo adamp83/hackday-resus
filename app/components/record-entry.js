@@ -4,6 +4,13 @@ export default Ember.Component.extend({
 	
 	editingText: false,
 	
+	didInsertElement: function(){
+		var sel = '.resus-event-log';
+		if(Ember.$(sel)[0]){
+			Ember.$(sel).scrollTop( Ember.$(sel)[0].scrollHeight );
+		}
+	},
+	
 	actions: {
 		finishedEditing: function(){
 			this.set('editingText', false);
