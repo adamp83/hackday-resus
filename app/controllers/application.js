@@ -57,7 +57,10 @@ export default Ember.Controller.extend({
 			
 			// Reset timers on all buttons
 			this.store.all('button').forEach(function(x){
-				x.set('timer', 0);
+				if(x.get('hasTimer')){
+					x.set('timer', undefined);
+					x.set('countFrom', undefined);
+				}
 			});
 
 		},
