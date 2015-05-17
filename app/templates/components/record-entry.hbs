@@ -1,5 +1,9 @@
 <li {{bind-attr class="record.userDeleted:deleted :record"}}>
 	<div class="pull-right">
+		
+		{{#if record.member}}
+			{{record.member.name}}
+		{{/if}}
 		<button {{action "deleteRecord"}}>x</button>
 	</div>
 	
