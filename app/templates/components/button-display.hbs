@@ -1,14 +1,11 @@
 <div {{bind-attr class="controller.displayStatuses:dropdown"}}>
 	
-	<button {{action "clickButton" button}} {{bind-attr class=":actionButton awaitingStatus button.isActive:active :btn :btn-default :btn-block controller.displayStatuses:dropdown-toggle"}} data-toggle="dropdown" aria-expanded="true">
-		{{button.title}}
-		{{#if controller.displayStatuses}}
-			<span class="caret"></span>
-		{{/if}}
-		
-		{{#if button.status}}
+	<button {{action "clickButton"}} {{bind-attr class=":actionButton awaitingStatus button.isActive:active :btn :btn-default :btn-block controller.displayStatuses:dropdown-toggle"}} data-toggle="dropdown" aria-expanded="true">
+		{{button.title}}{{#if button.status}}:
 			<span class="buttonStatus">{{button.status}}</span>
 		{{/if}}
+		
+		
 		{{#if button.counted}}
 			<span class="buttonCount">{{button.count}}</span>
 		{{/if}}
@@ -21,7 +18,9 @@
 				{{/if}}
 			{{/if}}
 		{{/if}}
-		
+		{{#if controller.displayStatuses}}
+			<span class="caret"></span>
+		{{/if}}
 	</button>
 	
 	

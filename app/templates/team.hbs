@@ -1,0 +1,7 @@
+<h4>Team</h4>
+<div>
+	<button class="actionButton btn btn-default btn-block" {{action "addMember"}}>Add member</button>
+</div>
+{{#each member in controller.members}}
+	{{member-display member=member}}
+{{/each}}

@@ -7,11 +7,29 @@ export default Ember.Component.extend({
 		return (this.get('button.statuses') != undefined) && (this.get('button.status') == undefined);
 	}.property('button.status', 'button.statuses'),
 	
-	actions: {
-		clickButton: function(button){
-			var userText = undefined;
+	dragEnter: function(event){
+		console.log('enter!');
+	},
+	
+	dragLeave: function(event){
+		console.log('leave!');
+	},
+	
+	drop: function(event){
+		//For some reason this doesn't get called when I drop. DragLeave does...
+		console.log('drop');
+		var id = event.dataTransfer.getData('text/data');
+		var member;
+		if(member = this.store.find('member', id)){
+			this.doButtonAction(member);
+		}
+	},
+	
+	doButtonAction: function(member){
+		//Need to implement member handling where appropriate
+		var userText = undefined;
+			var button = this.get('button');
 			var text = button.get('title');
-			
 			if(button.get('isToggleable')){
 				if(button.get('isActive')){
 					button.set('isActive', false);
@@ -52,9 +70,11 @@ export default Ember.Component.extend({
 				//Does have statuses: display to user!
 				this.toggleProperty('displayStatuses');
 			}
-			
-			
-			
+	},
+	
+	actions: {
+		clickButton: function(){
+			this.doButtonAction();
 		},
 		
 		selectStatus: function(button, status){

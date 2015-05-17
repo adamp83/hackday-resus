@@ -53,9 +53,9 @@ Button.reopenClass({
 		{id: 25, title: "Thrombosis", statuses: ['Not suspected', 'Suspected', 'Confirmed', 'Treated'], category: 5},
 		{id: 26, title: "Toxins", statuses: ['Not suspected', 'Suspected', 'Confirmed', 'Treated'], category: 5},
 
-		{id: 27, title: "Member arrives", category: 6},
+		/*{id: 27, title: "Member arrives", category: 6},
 		{id: 28, title: "Member leaves", category: 6},
-		{id: 29, title: "Delegate task", category: 6},
+		{id: 29, title: "Delegate task", category: 6},*/
 		
 		
 	]
