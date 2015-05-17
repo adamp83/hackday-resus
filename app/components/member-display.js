@@ -6,13 +6,7 @@ export default Ember.Component.extend({
 	
 classNames        : [ 'draggableItem', 'teamMember' ],
   attributeBindings : [ 'draggable' ],
-  draggable         : function(){
-  	if(this.get('editName'))
-  		return 'false';
-  	else
-  		return 'true';
-  		
-  }.property('editName'),
+  draggable         : 'true',
 	
 	editName: false,
 	
@@ -24,9 +18,11 @@ classNames        : [ 'draggableItem', 'teamMember' ],
 	actions: {
 		doEditName: function(){
 			this.set('editName', true);
+			this.set('draggable', false);
 		},
 		saveEditName: function(){
 			this.set('editName', false);
+			this.set('draggable', true);
 		}
 	}
 	
