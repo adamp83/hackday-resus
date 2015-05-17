@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	
 	tagName: 'li',
+	hoverOver: false,
 	
 	drop: function(event){
 		event.preventDefault();
@@ -26,6 +27,28 @@ export default Ember.Component.extend({
 			}
 		});
 		
+	},
+	
+	counter: 0,
+	
+	dragEnter: function(event){
+		this.set('counter', this.get('counter') + 1);
+
+		event.preventDefault();
+	},
+	
+	dragLeave: function(event){
+		this.set('counter', this.get('counter') - 1);
+
+		event.preventDefault();
+
+		if(this.get('counter') === 0){
+			this.set('hoverOver', false);
+		}
+	},
+	dragOver: function(event){
+		event.preventDefault();
+		this.set('hoverOver', true);
 	},
 	
 	actions: {

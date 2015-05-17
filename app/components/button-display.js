@@ -57,8 +57,9 @@ export default Ember.Component.extend({
 
 			if(member){
 				_this.doButtonAction(member);
-				if(this.get('button.statuses'))
-					this.set('displayStatuses', false);
+				if(_this.get('button.statuses')){
+					_this.set('displayStatuses', false);
+				}
 			}
 		});
 		

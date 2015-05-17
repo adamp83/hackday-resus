@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
 		addMember: function(){
 			var index = this.get('membersAdded')+1;
 			this.set('membersAdded', index);
-			var m = this.store.createRecord('member', {name: 'Minion ' + index});
+			var m = this.store.createRecord('member', {name: 'Person ' + index});
 			this.store.createRecord('record', {
 				userText: m.get('name') + ' joined.',
 				time: Date.now()
