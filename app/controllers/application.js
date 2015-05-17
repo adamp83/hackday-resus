@@ -147,7 +147,7 @@ export default Ember.Controller.extend({
 				
 				_this.set('pdfMode', false);
 				
-				doc.save('Resus log ' + moment(_this.get('appStartTime')).format('YYYY-MM-DD hh:mm') + '.pdf');	
+				doc.save('Resus log ' + moment(_this.get('appStartTime')).format('YYYY-MM-DD HH:mm') + '.pdf');	
 			});
 				
 		}

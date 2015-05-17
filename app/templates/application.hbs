@@ -84,7 +84,7 @@
 	<div class="container-fluid">
 		<ul id="resus-log">
 			{{#if pdfMode}}
-				<h1>Record of resuscitation: {{moment appStartTime "DD/MM/YYYY hh:mm"}}</h1>
+				<h1>Record of resuscitation: {{moment appStartTime "DD/MM/YYYY HH:mm"}}</h1>
 			{{/if}}
 			{{#each record in records}}
 				{{record-entry record=record}}
