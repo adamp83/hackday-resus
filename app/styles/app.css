@@ -103,3 +103,7 @@ body {
 .button-dropdown-menu.show{
 	display:block;
 }
+
+.dragHover{
+	border:red 2px solid;
+}

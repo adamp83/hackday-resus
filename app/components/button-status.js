@@ -12,6 +12,7 @@ export default Ember.Component.extend({
 		var _this = this;
 		var status = this.possibleStatus;
 		var button = this.button;
+		// button.set('status', status);
 		store.find('member', id).then(function(member){
 			if(member){
 				button.set('status', status);
@@ -39,8 +40,6 @@ export default Ember.Component.extend({
 				time: Date.now(),
 				text: button.get('title')
 			});
-			console.log(this)
-			this.set('displayStatuses', false);
 		}
 	}
 });

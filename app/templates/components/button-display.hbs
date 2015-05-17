@@ -1,7 +1,7 @@
 <div>
 <div>
 	
-	<button {{action "clickButton"}} {{bind-attr class=":actionButton awaitingStatus button.isActive:active :btn :btn-default :btn-block"}}>
+	<button {{action "clickButton"}} {{bind-attr class=":actionButton awaitingStatus button.isActive:active :btn :btn-default :btn-block hoverOver:dragHover"}}>
 		{{button.title}}
 		{{#if button.hasStatuses}}
 			<span class="caret"></span>
@@ -36,7 +36,7 @@
 	</button>
 	
 	
-
+	{{#if displayStatuses}}
 		<ul {{bind-attr class=":button-dropdown-menu displayStatuses:show"}}>
 			{{#each possibleStatus in button.statuses}}
 				{{button-status button=button possibleStatus=possibleStatus}}
@@ -44,7 +44,7 @@
 			
 			{{/each}}
 		</ul>
-	
+	{{/if}}
 
 	
 </div>
