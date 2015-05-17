@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
 	
+	tagName: 'li',
 	editingText: false,
 	
 	didInsertElement: function(){
