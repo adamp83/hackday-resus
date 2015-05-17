@@ -15,7 +15,7 @@ body {
 	overflow-y: scroll;
 	position: absolute;
 	top: 50px;
-	bottom: 200px;
+	bottom: 250px;
 	left: 0;
 	right: 0;
 }
@@ -49,28 +49,65 @@ body {
 
 /* event log */
 .resus-event-log {
-	padding-top: 30px;
-	padding-bottom: 20px;
+	padding-top: 0;
+  padding-bottom: 0;
   background-color: #F8F8F8;
   position: absolute;
   bottom: 0;
   width: 100%;
-  height:150px;
+  height:200px;
   overflow-x:hidden;
   overflow-y:scroll;
 }
-.resus-event-log .record .pull-right .button {
-	border: none;
+.resus-event-log ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.resus-event-log .container-fluid {
+	padding: 0;
+}
+.record,
+.custom-record {
+	padding: 15px
+}
+.record-title {
+	font-weight: 600;
+}
+.resus-event-log li.ember-view:nth-child(odd){
+	background-color: #fff;
+}
+.resus-event-log li.ember-view:nth-child(even){
+	background-color: #f8f8f8;
+}
+.record-buttons a {
+	padding: 0 5px;
+}
+.record-button {
+    display:inline-block;
+    line-height: 50px;
+    vertical-align: bottom;
+}
+.delete-button {
+  color: rgb(255, 134, 134);
+}
+.delete-button:hover {
+  color: rgb(255, 95, 95);
+}
+.edit-button {
+  color: rgb(72, 182, 231);
+}
+.edit-button:hover {
+  color: rgb(52, 155, 202);
 }
 
 .team-bar{
 	position:absolute;
-	bottom:150px;
+	bottom:200px;
 	height:50px;
 	left:0;
 	right:0;
-	overflow-x:scroll;
-	overflow-y:hidden;
+	overflow:hidden;
 }
 .team-bar > div{
 	width:100%;
