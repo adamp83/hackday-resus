@@ -4,6 +4,7 @@ export default Ember.Route.extend({
 	
 	model: function(){
 		this.store.find('button');
+		this.store.find('member');
 		return this.store.find('category');
 	},
 	
