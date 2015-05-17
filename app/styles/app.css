@@ -2,6 +2,9 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+ul {
+	list-style-type: none;
+}
 .timer {
 	font-weight: 600;
 	font-size: 24px;
@@ -85,8 +88,6 @@ body {
 }
 .record-button {
     display:inline-block;
-    line-height: 50px;
-    vertical-align: bottom;
 }
 .delete-button {
   color: rgb(255, 134, 134);
@@ -143,4 +144,41 @@ body {
 
 .dragHover{
 	border:red 2px solid;
+}
+
+
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
 }
