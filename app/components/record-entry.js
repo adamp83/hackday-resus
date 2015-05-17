@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	needs: 'application',
 	
 	tagName: 'li',
 	editingText: false,
