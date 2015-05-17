@@ -87,7 +87,8 @@ export default Ember.Component.extend({
 			button.store.createRecord('record', {
 				button: button,
 				userText: status,
-				time: Date.now()
+				time: Date.now(),
+				text: button.get('title')
 			});
 			this.set('displayStatuses', false);
 		}
