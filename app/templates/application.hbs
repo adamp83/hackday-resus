@@ -82,7 +82,7 @@
 <!-- event log -->
 <footer class="resus-event-log">
 	<div class="container-fluid">
-		<ul>
+		<ul id="resus-log">
 			{{#each record in records}}
 				{{record-entry record=record}}
 			{{/each}}
@@ -94,4 +94,5 @@
 			</li>
 		</ul>
 	</div>
+	<button {{action "makePDF"}}>PDF</button>
 </footer>

@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
 	arrestMode: true,
 	presumedArrest: true,
 	
-	resusStatuses: ['For full resuscitation', 'For limited resuscitation', 'Not for resuscitation'],
+	resusStatuses: ['For full resuscitation', 'For limited resuscitation', 'Not for resuscitation', 'Unknown resuscitation status'],
 	resusStatus: undefined,
 	displayResusStatuses: false,
 	
@@ -116,8 +116,27 @@ export default Ember.Controller.extend({
 				time: Date.now(),
 				text: 'Resus status selected: ' + status
 			});
-		}
+		},
+		
+		makePDF: function(){
+			var doc = new jsPDF();
 
+			// We'll make our own renderer to skip this editor
+			var specialElementHandlers = {
+				'#editor': function(element, renderer){
+					return true;
+				}
+			};
+
+			// All units are in the set measurement for the document
+			// This can be changed to "pt" (points), "mm" (Default), "cm", "in"
+			doc.fromHTML($('#resus-log').get(0), 15, 15, {
+				'width': 170, 
+				'elementHandlers': specialElementHandlers
+			});
+			
+			doc.save('Resus log.pdf');	
+		}
 	}
 
 });
