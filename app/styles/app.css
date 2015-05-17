@@ -2,6 +2,9 @@
 body {
   font-family: 'Open Sans', sans-serif;
 }
+ul {
+	list-style-type: none;
+}
 .timer {
 	font-weight: 600;
 	font-size: 24px;
@@ -85,8 +88,6 @@ body {
 }
 .record-button {
     display:inline-block;
-    line-height: 50px;
-    vertical-align: bottom;
 }
 .delete-button {
   color: rgb(255, 134, 134);
