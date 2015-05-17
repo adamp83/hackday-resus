@@ -25,12 +25,6 @@ body {
 .resus-col:nth-child(odd){
 	background-color: #EDF9FF;
 }
-.resus-odd-col {
-	background-color: #EDF9FF;
-}
-.resus-even-col {
-	background-color: #F5FCFF;
-}
 .resus-main-columns .resus-col .btn {
 	margin: 7px 0;
 }
@@ -44,49 +38,12 @@ body {
     vertical-align: top;
 }
 
+
 /* event log */
 .resus-event-log {
 	padding-top: 30px;
 	padding-bottom: 20px;
   background-color: #F8F8F8;
-}
-
-
-/* extra css for 5 equal-width columns in bootstrap */
-.col-xs-5ths,
-.col-sm-5ths,
-.col-md-5ths,
-.col-lg-5ths {
-    position: relative;
-    min-height: 1px;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.col-xs-5ths {
-    width: 20%;
-    float: left;
-}
-
-@media (min-width: 768px) {
-    .col-sm-5ths {
-        width: 20%;
-        float: left;
-    }
-}
-
-@media (min-width: 992px) {
-    .col-md-5ths {
-        width: 20%;
-        float: left;
-    }
-}
-
-@media (min-width: 1200px) {
-    .col-lg-5ths {
-        width: 20%;
-        float: left;
-    }
 }
 
 
