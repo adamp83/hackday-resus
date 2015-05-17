@@ -12,13 +12,18 @@
     <div id="navbar">
       <p class="navbar-text timer">
 		  {{resusTimerStr}}
-		  {{#if controller.arrestMode}}
+		  {{#if presumedArrest}}
+		  	(presumed arrest)
+		  {{else if arrestMode}}
 		  	(arrest)
 		  {{else}}
 		  	(sick)
 		  {{/if}}
 	  </p>
-	  {{#if arrestMode}}
+	  	{{#if presumedArrest}}
+	  		<button {{action "isArrest"}} class="btn btn-default navbar-btn">Confirm</button>
+	  		<button {{action "notArrest"}} class="btn btn-default navbar-btn">Not an arrest</button>
+	  	{{else if arrestMode}}
 			<button {{action "endArrest"}} class="btn btn-default navbar-btn">ROSC</button>
 		{{else}}
 			<button {{action "startArrest"}} class="btn btn-default navbar-btn">Start arrest</button>

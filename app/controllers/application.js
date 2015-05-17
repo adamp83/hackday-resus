@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
 	timerStarted: false,
 	
 	arrestMode: true,
+	presumedArrest: true,
 	
 	resusStatuses: ['For full resuscitation', 'For limited resuscitation', 'Not for resuscitation'],
 	resusStatus: undefined,
@@ -53,6 +54,21 @@ export default Ember.Controller.extend({
 			this.store.createRecord('record',{
 				time: Date.now(),
 				text: 'Arrest declared'
+			});
+		},
+		isArrest: function(){
+			this.set('presumedArrest', false);
+			this.store.createRecord('record',{
+				time: Date.now(),
+				text: 'Presumed arrest confirmed.'
+			});
+		},
+		notArrest: function(){
+			this.set('presumedArrest', false);
+			this.set('arrestMode', false);
+			this.store.createRecord('record',{
+				time: Date.now(),
+				text: 'Presumed arrest stood down.'
 			});
 		},
 		endArrest: function(){
