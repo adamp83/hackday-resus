@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.Controller.extend({
 	
@@ -17,7 +18,7 @@ export default Ember.Controller.extend({
 		setInterval(function(){
 			if(_this.get('timerStarted')){
 				var duration = moment.duration(_this.get('resusTimer'), 's');
-				var durationStr = Math.floor(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
+				var durationStr = Math.floor(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss");
 				_this.set('resusTimer', Number((_this.get('resusTimer') + 0.1).toFixed(2)));
 				_this.set('resusTimerStr', durationStr);
 			}
@@ -29,7 +30,7 @@ export default Ember.Controller.extend({
 			this.store.createRecord('record', {
 				button: button,
 				time: Date.now()
-			})
+			});
 		},
 		
 		startTimer: function(){

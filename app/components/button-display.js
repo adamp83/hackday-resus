@@ -1,22 +1,23 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.Component.extend({
 	displayStatuses: false,
 	
 	awaitingStatus: function(){
-		return (this.get('button.statuses') != undefined) && (this.get('button.status') == undefined);
+		return (this.get('button.statuses') !== undefined) && (this.get('button.status') === undefined);
 	}.property('button.status', 'button.statuses'),
 	
 	actions: {
 		clickButton: function(button){
-			var userText = undefined;
+			// var userText = undefined;
 			var text = button.get('title');
 			
 			if(button.get('isToggleable')){
 				if(button.get('isActive')){
 					button.set('isActive', false);
 					var duration = moment.duration(Date.now() - button.get('countFrom'));
-					var durationStr = Math.floor(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
+					var durationStr = Math.floor(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss");
 					button.set('activeDuration', durationStr);
 					text = text + " stopped (" + durationStr +")";
 				}else{
@@ -34,13 +35,16 @@ export default Ember.Component.extend({
 			}
 			
 			if(!button.get('statuses')){
+				var userText = "";
 				if(button.get('counted')){
-					if(!button.get('count'))
+					if(!button.get('count')){
 						button.set('count', 1);
-					else
+					}
+					else{
 						button.set('count', button.get('count') + 1);
+					}
 					userText = button.get('count');
-				};
+				}
 				button.store.createRecord('record', {
 					button: button,
 					userText: userText,
@@ -74,7 +78,7 @@ export default Ember.Component.extend({
 			setInterval(function(){
 				if(button.get('countFrom')){
 					var duration = moment.duration(Date.now() - button.get('countFrom'), 'milliseconds');
-					var str = Math.floor(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss")
+					var str = Math.floor(duration.asHours()) + moment.utc(duration.asMilliseconds()).format(":mm:ss");
 					
 					button.set('timer', str);
 				}

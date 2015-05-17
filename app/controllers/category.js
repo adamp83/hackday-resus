@@ -8,8 +8,7 @@ export default Ember.ObjectController.extend({
 		console.log('recalc buttons! ' + arrestMode);
 		var model = this.get('model');
 		return this.store.filter('button', function(b){
-			var ret
-			ret = ((b.get('arrestMode') && arrestMode) || (b.get('sickMode') &! arrestMode)) && (b.get('category') == model);
+			var ret = ((b.get('arrestMode') && arrestMode) || (b.get('sickMode') &! arrestMode)) && (b.get('category') === model);
 			console.log(ret);
 			return ret;
 		});
