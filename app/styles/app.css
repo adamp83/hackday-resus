@@ -55,7 +55,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height:200px;
+  height:150px;
   overflow-x:hidden;
   overflow-y:scroll;
 }
@@ -63,6 +63,25 @@ body {
 	border: none;
 }
 
+.team-bar{
+	position:absolute;
+	bottom:150px;
+	height:50px;
+	left:0;
+	right:0;
+	overflow-x:scroll;
+	overflow-y:hidden;
+}
+.team-bar > div{
+	width:100%;
+}
+.teamMember{
+	display:inline-block;
+}
+
+.draggableDropzone{
+	background-color:#fff;
+}
 
 .record{
 	clear:both;
@@ -76,4 +95,11 @@ body {
 
 .actionButton.active{
 	background-color: #ccf;
+}
+
+.button-dropdown-menu{
+	display:none;
+}
+.button-dropdown-menu.show{
+	display:block;
 }

@@ -1,7 +1,12 @@
-<div {{bind-attr class="controller.displayStatuses:dropdown"}}>
+<div>
+<div>
 	
-	<button {{action "clickButton"}} {{bind-attr class=":actionButton awaitingStatus button.isActive:active :btn :btn-default :btn-block controller.displayStatuses:dropdown-toggle"}} data-toggle="dropdown" aria-expanded="true">
+	<button {{action "clickButton"}} {{bind-attr class=":actionButton awaitingStatus button.isActive:active :btn :btn-default :btn-block"}}>
 		{{button.title}}
+		{{#if button.hasStatuses}}
+			<span class="caret"></span>
+		{{/if}}
+		
 		{{#if button.status}}
 			<div class="buttonStatus">
 				<small>{{button.status}}</small>
@@ -27,25 +32,20 @@
 				{{/if}}
 			{{/if}}
 		{{/if}}
-		{{#if controller.displayStatuses}}
-			<span class="caret"></span>
-		{{/if}}
+		
 	</button>
 	
 	
-	{{#if controller.displayStatuses}}
-		<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+
+		<ul {{bind-attr class=":button-dropdown-menu displayStatuses:show"}}>
 			{{#each possibleStatus in button.statuses}}
-				<li role="presentation">
-					<a role="menuitem" tabindex="-1" href="#" {{action "selectStatus" button possibleStatus}}>
-						{{possibleStatus}}
-					</a>
-				</li>
+				{{button-status button=button possibleStatus=possibleStatus}}
+				
 			
 			{{/each}}
 		</ul>
-	{{/if}}
 	
 
 	
+</div>
 </div>

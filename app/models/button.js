@@ -15,6 +15,10 @@ var Button = DS.Model.extend({
 	status: DS.attr(),
 	arrestMode: DS.attr('boolean', {defaultValue: true}),
 	sickMode: DS.attr('boolean', {defaultValue: true}),
+	
+	hasStatuses: function(){
+		return this.get('statuses.length') > 0;
+	}.property('statuses')
 });
 
 Button.reopenClass({
