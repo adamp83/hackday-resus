@@ -48,12 +48,18 @@ export default Ember.Controller.extend({
 		},
 		endArrest: function(){
 			this.set('arrestMode', false);
-			this.send('resetTimer');
-			this.send('startTimer');
 			this.store.createRecord('record',{
 				time: Date.now(),
-				text: 'ROSC declared'
+				text: 'ROSC declared after ' + this.get('resusTimerStr')
 			});
+			this.send('stopTimer');
+			this.send('resetTimer');
+			
+			// Reset timers on all buttons
+			this.store.all('button').forEach(function(x){
+				x.set('timer', 0);
+			});
+
 		},
 		stopTimer: function(){
 			this.set('timerStarted', false);
