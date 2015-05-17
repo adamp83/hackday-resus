@@ -4,7 +4,7 @@ import moment from 'moment';
 export default Ember.Controller.extend({
 	
 	resusTimer: 0.0,
-	resusTimerStr: "",
+	resusTimerStr: "0:00:00",
 	timerStarted: false,
 	
 	arrestMode: false,
