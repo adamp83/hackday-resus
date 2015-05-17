@@ -1,20 +1,29 @@
 <div {{bind-attr class="controller.displayStatuses:dropdown"}}>
 	
 	<button {{action "clickButton"}} {{bind-attr class=":actionButton awaitingStatus button.isActive:active :btn :btn-default :btn-block controller.displayStatuses:dropdown-toggle"}} data-toggle="dropdown" aria-expanded="true">
-		{{button.title}}{{#if button.status}}:
-			<span class="buttonStatus">{{button.status}}</span>
+		{{button.title}}
+		{{#if button.status}}
+			<div class="buttonStatus">
+				<small>{{button.status}}</small>
+			</div>
 		{{/if}}
 		
 		
 		{{#if button.counted}}
-			<span class="buttonCount">{{button.count}}</span>
+			{{#if button.count}}
+			<div class="buttonCount">
+				<small>Count: {{button.count}}</small>
+			</div>
+			{{/if}}
 		{{/if}}
 		{{#if button.hasTimer}}
 			{{#if button.countFrom}}
 				{{#if button.activeDuration}}
 
 				{{else}}
-					{{button.timer}}
+					<div class="buttonTimer">
+						<small>{{button.timer}}</small>
+					</div>
 				{{/if}}
 			{{/if}}
 		{{/if}}
