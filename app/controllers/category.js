@@ -5,11 +5,11 @@ export default Ember.ObjectController.extend({
 	
 	buttons: function(){
 		var arrestMode = this.get('controllers.application.arrestMode');
-		console.log('recalc buttons! ' + arrestMode);
+//		console.log('recalc buttons! ' + arrestMode);
 		var model = this.get('model');
 		return this.store.filter('button', function(b){
 			var ret = ((b.get('arrestMode') && arrestMode) || (b.get('sickMode') &! arrestMode)) && (b.get('category') === model);
-			console.log(ret);
+			// console.log(ret);
 			return ret;
 		});
 	}.property('controllers.application.arrestMode', 'model'),

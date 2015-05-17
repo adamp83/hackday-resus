@@ -3,12 +3,13 @@ import moment from 'moment';
 
 export default Ember.Component.extend({
 	displayStatuses: false,
+	hoverOver: false,
 	
 	classNames        : [ 'draggableDropzone' ],
-  	classNameBindings : [ 'dragClass' ],
+  	classNameBindings : [ 'dragHover' ],
 	
 	counter: 0,
-//  	dragClass         : 'deactivated',
+
 	
 	awaitingStatus: function(){
 		return (this.get('button.statuses') !== undefined) && (this.get('button.status') === undefined);
@@ -33,16 +34,19 @@ export default Ember.Component.extend({
 
 		if(this.get('counter') === 0){
 			this.set('displayStatuses', false);
+			this.set('hoverOver', false);
 		}
 		// this.set('displayStatuses', false);
 	},
 	dragOver: function(event){
 		event.preventDefault();
+		this.set('hoverOver', true);
 		// console.log('dragOver');
 	},
 	
 	drop: function(event){
 		event.preventDefault();
+		this.set('hoverOver', false);
 		//For some reason this doesn't get called when I drop. DragLeave does...
 
 		var id = event.dataTransfer.getData('text/data');
@@ -138,5 +142,10 @@ export default Ember.Component.extend({
 				}
 			}, 100);
 		}
-	}.on('init')
+	}.on('init'),
+	
+	// Hide status options when changed
+	hideStatuses: function(){
+		this.set('displayStatuses', false);
+	}.observes('button.status')
 });
