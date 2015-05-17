@@ -53,6 +53,8 @@ export default Ember.Component.extend({
 
 			if(member){
 				_this.doButtonAction(member);
+				if(this.get('button.statuses'))
+					this.set('displayStatuses', false);
 			}
 		});
 		
@@ -110,13 +112,15 @@ export default Ember.Component.extend({
 			}
 			else{
 				//Does have statuses: display to user!
-				this.toggleProperty('displayStatuses');
+				
 			}
 	},
 	
 	actions: {
 		clickButton: function(){
 			this.doButtonAction();
+			if(this.get('button.statuses'))
+				this.toggleProperty('displayStatuses');
 		}
 		
 		

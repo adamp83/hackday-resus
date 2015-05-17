@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
 	resusTimerStr: "0:00:00",
 	timerStarted: false,
 	
-	arrestMode: false,
+	arrestMode: true,
 	
 	resusStatuses: ['For full resuscitation', 'For limited resuscitation', 'Not for resuscitation'],
 	resusStatus: undefined,
@@ -31,6 +31,7 @@ export default Ember.Controller.extend({
 				_this.set('resusTimerStr', durationStr);
 			}
 		}, 100);
+		this.set('timerStarted', true);
 	}.on('init'),
 	
 	actions: {
