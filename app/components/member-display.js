@@ -1,8 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	attributeBindings: 'draggable',
-	draggable: true,
+	// attributeBindings: 'draggable',
+	// draggable: true,
+	
+classNames        : [ 'draggableItem', 'teamMember' ],
+  attributeBindings : [ 'draggable' ],
+  draggable         : 'true',
 	
 	dragStart: function(event){
 		console.log('Start dragging!');

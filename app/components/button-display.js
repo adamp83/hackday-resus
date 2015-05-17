@@ -4,30 +4,62 @@ import moment from 'moment';
 export default Ember.Component.extend({
 	displayStatuses: false,
 	
+	classNames        : [ 'draggableDropzone' ],
+  	classNameBindings : [ 'dragClass' ],
+	
+	counter: 0,
+//  	dragClass         : 'deactivated',
+	
 	awaitingStatus: function(){
 		return (this.get('button.statuses') !== undefined) && (this.get('button.status') === undefined);
 	}.property('button.status', 'button.statuses'),
 	
 	
 	dragEnter: function(event){
-		console.log('enter!');
+		this.set('counter', this.get('counter') + 1);
+
+		event.preventDefault();
+
+		if(this.element.localName === "div"){
+			this.set('displayStatuses', true);
+		}
+		
 	},
 	
 	dragLeave: function(event){
-		console.log('leave!');
+		this.set('counter', this.get('counter') - 1);
+
+		event.preventDefault();
+
+		if(this.get('counter') === 0){
+			this.set('displayStatuses', false);
+		}
+		// this.set('displayStatuses', false);
+	},
+	dragOver: function(event){
+		event.preventDefault();
+		// console.log('dragOver');
 	},
 	
 	drop: function(event){
+		event.preventDefault();
 		//For some reason this doesn't get called when I drop. DragLeave does...
-		console.log('drop');
+
 		var id = event.dataTransfer.getData('text/data');
-		var member;
-		if(member = this.store.find('member', id)){
-			this.doButtonAction(member);
-		}
+
+		var store = this.get('button.store');
+		var _this = this;
+		store.find('member', id).then(function(member){
+
+			if(member){
+				_this.doButtonAction(member);
+			}
+		});
+		
 	},
 	
 	doButtonAction: function(member){
+
 		//Need to implement member handling where appropriate
 		var userText = undefined;
 			var button = this.get('button');
@@ -64,12 +96,17 @@ export default Ember.Component.extend({
 					}
 					userText = "Count: " + button.get('count').toString();
 				}
-				button.store.createRecord('record', {
+
+				var record = button.store.createRecord('record', {
 					button: button,
 					userText: userText,
 					text: text,
 					time: Date.now()
 				});
+				// if(member){
+					record.set('member', member);
+				// }
+				
 			}
 			else{
 				//Does have statuses: display to user!
